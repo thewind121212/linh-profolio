@@ -1,6 +1,6 @@
 'use client'
 import Lottie from 'lottie-react';
-import DogRunAnimation from './lottie-animations/dog.json'
+import DogRunAnimation from './lottie-animations/dog_file.json'
 
 
 
@@ -9,12 +9,6 @@ export default function DogRunAnimationComponent({
 }: {
     className?: string;
 }) {
-    const animationOptions = {
-        loop: true,
-        autoplay: true,
-        animationData: DogRunAnimation,
-        renderer: 'svg',
-    };
 
     return (
         <div className={`${className}`}>

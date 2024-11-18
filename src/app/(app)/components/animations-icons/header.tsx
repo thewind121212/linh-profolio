@@ -1,11 +1,11 @@
 
 'use client'
 import Lottie from 'lottie-react';
-import Home from './lottie-animations/home.json'
-import About from './lottie-animations/about.json'
-import Blog from './lottie-animations/blogs.json'
-import Work from './lottie-animations/tech.json'
-import Contact from './lottie-animations/contact.json'
+import Home from './lottie-animations/home_file.json'
+import About from './lottie-animations/about_file.json'
+import Blog from './lottie-animations/blogs_file.json'
+import Work from './lottie-animations/tech_file.json'
+import Contact from './lottie-animations/contact_file.json'
 
 
 
