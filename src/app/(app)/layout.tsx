@@ -1,5 +1,6 @@
 import IndexLoading from './components/loading/IndexLoading'
-import { PPFragment } from './font/font'
+import { AeoninkFont } from './font/font'
+import Header from './components/header/Header'
 
 export const metadata = {
   title: 'Next.js',
@@ -15,7 +16,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={PPFragment.className}>
+      <body className={AeoninkFont.className}>
+        <Header />
         <IndexLoading />
         {children}
       </body>
