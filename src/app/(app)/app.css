@@ -295,3 +295,77 @@
 .padding-main {
   padding: 0 clamp(1rem, 0.6rem + 2vw, 3rem);
 }
+
+.padding-main-top{
+  padding-top: clamp(1rem, 0.6rem + 2vw, 3rem);
+}
+
+.main-gap {
+  gap: clamp(4.75rem, 4rem + 3.75vw, 8.5rem);
+}
+
+
+.link {
+  height: 10px;
+  align-items: center;
+  color: #000;
+  text-decoration: none;
+  display: flex;
+}
+
+.mask {
+  position: relative;
+  padding: 0;
+  height: 20px;
+
+  overflow: hidden;
+}
+
+.link-container {
+  transition: transform 0.4s ease;
+}
+
+.title {
+  display: block;
+
+  /*  Set same font-size and line height  */
+  font-size: 20px;
+  line-height: 20px;
+
+  transition: transform 0.4s ease;
+}
+
+.link-title1 {
+  transform-origin: right center;
+}
+
+.link-title2 {
+  transform-origin: left center;
+  transform: rotate(20deg);
+}
+
+
+
+
+/* Move up two texts (20px = font-size) */
+.link:hover .link-container {
+  transform: translateY(-20px);
+}
+
+/* Rotate texts a little bit */
+.link:hover .link-title1 {
+  transform: rotate(20deg);
+}
+
+.link:hover .link-title2 {
+  transform: rotate(0);
+}
+
+/* Move arrows to right */
+.link:hover .icon:first-child {
+  transform: translate(40px);
+}
+
+.link:hover .icon:nth-child(2) {
+  transform: translate(0px);
+}
