@@ -1,5 +1,10 @@
 'use client'
 import React, { useEffect } from 'react'
+import Link from 'next/link';
+import TextHover from '../../share-components/TextHover';
+import { MdEmail, MdPhone, MdLocationOn, MdAccessTime } from "react-icons/md";
+import { FaGlobeAsia } from "react-icons/fa";
+import Image from 'next/image';
 import { headerMenuStore } from '../../store/headerMenu'
 import { FaAngleLeft } from "react-icons/fa";
 import { FaAngleRight } from "react-icons/fa";
@@ -117,7 +122,6 @@ export default function HeaderMenu({ }: Props) {
                 '!hidden': !isOpen
             }
         )}
-            onClick={() => headerContentTl.reverse()}
         >
             <div className="w-full h-full relative flex justify-start items-center">
                 <div className="header-menu-overlay bg-[#000000ba] w-full h-full absolute top-0 left-0 z-1"></div>
@@ -147,19 +151,77 @@ export default function HeaderMenu({ }: Props) {
                     <div className="w-full h-[28.5714285714%] absolute bottom-0 left-0 flex justify-center items-center">
                         <DogRunAnimation className="w-1/3 h-auto" />
                         <div className="w-2/3 flex flex-col justify-center items-center gap-[8px]">
-                            <div className="w-full h-auto flex justify-center items-center">
+                            <div className="w-full h-auto flex justify-center items-center cursor-default">
                                 <div className="flex justify-start items-center gap-[4px]">
                                     <FaAngleLeft className="text-[#614C5C] text-3xl translate-y-[3px]" />
                                     <h2 className="text-[#614C5C] text-3xl whitespace-nowrap">{whatDay}</h2>
                                     <FaAngleRight className="text-[#614C5C] text-3xl translate-y-[3px]" />
                                 </div>
                             </div>
-                            <p className='text-1 text-center w-2/3 max-w-[290px] text-[#614c5ce6]'>{greeting}</p>
+                            <p className='text-1 text-center w-2/3 max-w-[290px] text-[#614c5ce6] cursor-default'>{greeting}</p>
                         </div>
 
                     </div>
                 </div>
-                <div className="header-menu-right w-[50svw] h-full basis-1/2 bg-[#e2aef5] absolute top-0 right-0"></div>
+                <div className="header-menu-right w-[50svw] h-full basis-1/2 bg-[#FFCCEA] absolute top-0 right-0 padding-main padding-main-top flex justify-center flex-col">
+                    <div className="w-full h-full relative flex flex-col justify-start items-center">
+                        <div className="w-[90px] h-[30px] bg-[#463237] rounded-full flex justify-center items-center text-white text-sm uppercase duration-200 font-bold cursor-pointer border border-[#463237] hover:border-[#463237] hover:text-[#463237] hover:bg-white absolute right-0 top-0"
+                            onClick={() => headerContentTl.reverse()}
+                        >close</div>
+                        <div className="logo w-1/3 h-auto mt-8 aspect-square bg-white rounded-full flex justify-center items-center border-[7px] border-white relative">
+                            <div className="w-full h-full rounded-full border-[7px] border-[#463237] absolute"></div>
+                            <Image src="/logo_dark_enhance.png" className="w-3/4 h-auto header-logo opacity-100" alt="logo" width={100} height={100} />
+                        </div>
+                        <div className="wliafdew-info grid grid-cols-2 mt-20 main-gap cursor-default">
+                            <div className="info-first flex flex-col gap-8">
+                                <div className="info-first-email">
+                                    <div className="flex justify-start items-center gap-2">
+                                        <MdEmail color='#406a7c' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#406a7c] text-[18px] font-bold'>Email</h2>
+                                    </div>
+                                    <TextHover content='linhdevtd99@gmail.com' className='text-[#463237] ml-[26px] mt' />
+                                </div>
+                                <div className="info-first-phone">
+                                    <div className="flex justify-start items-center gap-2">
+                                        <MdPhone color='#406a7c' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#406a7c] text-[18px] font-bold'>Phone</h2>
+                                    </div>
+                                    <TextHover content='+84918327132' className='text-[#463237] ml-[26px] mt' />
+                                </div>
+                                <div className="info-first-web">
+                                    <div className="flex justify-start items-center gap-2">
+                                        <FaGlobeAsia color='#406a7c' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#406a7c] text-[18px] font-bold'>Website</h2>
+                                    </div>
+                                    <div className="flex flex-col ml-[26px]">
+                                        <Link href="https://home.wliafdew.dev" target='_' className='uppercase text-[#463237] text-[14px] border-b border-transparent duration-200 w-fit hover:!border-[#463237]'>homelab</Link>
+                                        <Link href="https://www.facebook.com/tranduylinh.linh.5/" target='_' className='uppercase text-[#463237] text-[14px] border-b border-transparent duration-200 w-fit hover:!border-[#463237]'>facebook</Link>
+                                        <Link href="https://t.me/linhdevtran99" target='_' className='uppercase text-[#463237] text-[14px] border-b border-transparent duration-200 w-fit hover:!border-[#463237]'>Telegram</Link>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="info-second flex flex-col gap-4">
+                                <div className="info-second-location">
+                                    <div className="flex justify-start items-center gap-2">
+                                        <MdLocationOn color='#406a7c' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#406a7c] text-[18px] font-bold'>Location</h2>
+                                    </div>
+                                    <TextHover content='Ho Chi Minh, Viet Nam' className='text-[#463237] ml-[26px] mt' />
+                                </div>
+                                <div className="info-second-time">
+                                    <div className="flex justify-start items-center gap-2">
+                                        <MdAccessTime color='#406a7c' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#406a7c] text-[18px] font-bold'>available time</h2>
+                                    </div>
+                                    <TextHover content='9am - 8pm' className='text-[#463237] ml-[26px] mt' />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="w-full h-[14.2857142857%] border-[#463237] border-t-[2px] absolute left-0 bottom-0 flex justify-center items-center main-gap">
+                        <div className="text-[#46323l7] text-[18px]">@2024 - Wliafdew</div>
+                    </div>
+                </div>
             </div>
         </div>
     )

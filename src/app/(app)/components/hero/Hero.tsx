@@ -122,7 +122,7 @@ export default function Hero({ heroData }: Props) {
                 >
                     {heroData.button}
                 </button>
-                <div className="status-banner opacity-0 flex absolute flex-col right-0 bottom-0 gap-2">
+                <div className="status-banner opacity-0 flex absolute flex-col right-0 bottom-0 gap-4">
                     <div className="flex justify-between w-full items-start mt-[20px]">
                         <div className="w-[40vw] gap-[12px] h-[80px] bg-[#fbf0da] rounded-md text-black px-2 py-2 flex justify-between items-center cursor-default overflow-hidden">
                             <div className="h-full flex justify-end items-start w-auto flex-col">
@@ -135,7 +135,7 @@ export default function Hero({ heroData }: Props) {
                         </div>
                     </div>
                     <div className="w-[40vw] h-[50px] bg-white rounded-md self-end flex justify-start items-center overflow-hidden">
-                        <div className="basis-1/3 h-full bg-[#e2aef5]"></div>
+                        <div className="basis-1/3 h-full bg-[#FFCCEA]"></div>
                         <div className="basis-1/3 h-full bg-[#fbf0da]"></div>
                         <div className="basis-1/3 h-full flex justify-end items-center px-2 gap-2">
                             <p>Scroll</p>
