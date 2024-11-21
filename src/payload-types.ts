@@ -30,9 +30,11 @@ export interface Config {
   };
   globals: {
     Hero: Hero;
+    Header: Header;
   };
   globalsSelect: {
     Hero: HeroSelect<false> | HeroSelect<true>;
+    Header: HeaderSelect<false> | HeaderSelect<true>;
   };
   locale: null;
   user: User & {
@@ -232,11 +234,76 @@ export interface Hero {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Header".
+ */
+export interface Header {
+  id: number;
+  title: string;
+  headerMenu?:
+    | {
+        title: string;
+        link?: string | null;
+        animationIcon?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'headerMenuItem';
+      }[]
+    | null;
+  headerMenuInfo: {
+    headerMenuInfoEmail: string;
+    headerMenuInfoPhone: string;
+    headerMenuInfoLocation: string;
+    headerMenuInfoTime: string;
+    headerMenuInfoHomeLab: string;
+    headerMenuInfoFacebook: string;
+    headerMenuInfoTele: string;
+    headerMenuInfoGithub: string;
+  };
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "Hero_select".
  */
 export interface HeroSelect<T extends boolean = true> {
   title?: T;
   buttonText?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "Header_select".
+ */
+export interface HeaderSelect<T extends boolean = true> {
+  title?: T;
+  headerMenu?:
+    | T
+    | {
+        headerMenuItem?:
+          | T
+          | {
+              title?: T;
+              link?: T;
+              animationIcon?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
+  headerMenuInfo?:
+    | T
+    | {
+        headerMenuInfoEmail?: T;
+        headerMenuInfoPhone?: T;
+        headerMenuInfoLocation?: T;
+        headerMenuInfoTime?: T;
+        headerMenuInfoHomeLab?: T;
+        headerMenuInfoFacebook?: T;
+        headerMenuInfoTele?: T;
+        headerMenuInfoGithub?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

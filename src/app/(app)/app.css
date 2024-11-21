@@ -295,15 +295,21 @@
 .padding-main {
   padding: 0 clamp(1rem, 0.6rem + 2vw, 3rem);
 }
+.padding-main-left {
+  padding-left:  clamp(1rem, 0.6rem + 2vw, 3rem);
+}
 
-.padding-main-top{
+.padding-main-top {
   padding-top: clamp(1rem, 0.6rem + 2vw, 3rem);
+}
+
+.padding-main-bottom {
+  padding-bottom: clamp(1rem, 0.6rem + 2vw, 3rem);
 }
 
 .main-gap {
   gap: clamp(4.75rem, 4rem + 3.75vw, 8.5rem);
 }
-
 
 .link {
   height: 10px;
@@ -317,7 +323,6 @@
   position: relative;
   padding: 0;
   height: 20px;
-
   overflow: hidden;
 }
 
@@ -344,9 +349,6 @@
   transform: rotate(20deg);
 }
 
-
-
-
 /* Move up two texts (20px = font-size) */
 .link:hover .link-container {
   transform: translateY(-20px);
@@ -369,3 +371,5 @@
 .link:hover .icon:nth-child(2) {
   transform: translate(0px);
 }
+
+

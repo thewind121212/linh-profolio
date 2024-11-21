@@ -1,6 +1,8 @@
 import IndexLoading from './components/loading/IndexLoading'
 import { AeoninkFont } from './font/font'
 import Header from './components/header/Header'
+import config from '@payload-config'
+import { getPayloadHMR } from '@payloadcms/next/utilities'
 
 export const metadata = {
   title: 'Next.js',
@@ -9,15 +11,30 @@ export const metadata = {
 
 import './app.css'
 
-export default function RootLayout({
+export  default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+
+
+    const payload = await getPayloadHMR({
+        config,
+    })
+
+
+    const headerPayload = await payload.findGlobal({
+      slug: 'Header',
+      depth: 5,
+    })
+
+
+
+
   return (
-    <html lang="en">
+    <html lang="en" className='bg-[#000014]'>
       <body className={AeoninkFont.className}>
-        <Header />
+        <Header headerData={headerPayload} />
         <IndexLoading />
         {children}
       </body>
