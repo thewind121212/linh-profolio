@@ -1,7 +1,7 @@
-import Hero from "./components/hero/Hero";
+import Hero from "./components/layout/hero/Hero";
 import config from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
-import { buffer } from "stream/consumers";
+import Experiment from "./components/layout/experiment";
 
 
 
@@ -24,7 +24,7 @@ export default async function Page() {
         depth: 5,
     })
 
-    const heroData : HeroDataType = {
+    const heroData: HeroDataType = {
         title: 'Linh Dev',
         subtitle: heroPayload.title,
         button: heroPayload.buttonText,
@@ -37,8 +37,12 @@ export default async function Page() {
 
 
     return (
-        <div className="bg-[#000014] w-svw h-auto">
+        <div className="bg-[#000014] w-svw h-auto min-h-[200svh]">
             <Hero heroData={heroData} />
+            <Experiment />
+            <div className="section-two relative z-[991] mt-[100svh] opacity-0">
+                <div className="section-four w-full h-svh bg-[#FFCCEA]"></div>
+            </div>
         </div >
     );
 }

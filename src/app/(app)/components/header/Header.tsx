@@ -1,24 +1,81 @@
 'use client'
 import Image from "next/image";
+import { useRef } from "react";
 import dynamic from 'next/dynamic'
 import clsx from 'clsx'
 import { headerMenuStore } from "../../store/headerMenu";
+import { Header as HeaderType } from "@/payload-types";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useEffect } from "react";
 
 const HeaderMenu = dynamic(() => import('./HeaderMenu'), {
     ssr: false,
 })
 
-export default function Header() {
+export default function Header(
+    { headerData }: {
+        headerData: HeaderType
+    }
+) {
+    if (typeof window !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger)
+    }
+
+    let lastScrollY = useRef(0);
+
+    useEffect(() => {
+
+        ScrollTrigger.create({
+            trigger: "body",
+            start: "+=0",
+            onUpdate: (self) => {
+                const currentScrollY = self.scroll();
+                const scrollDelta = currentScrollY - lastScrollY.current;
+
+
+                // if (typeof window === 'undefined') return
+                // if (currentScrollY >= window.innerHeight) {
+                //     gsap.to(".experiment", {
+                //         position: 'relative',
+                //     });
+                // }
+
+                if (scrollDelta > 1 && currentScrollY > 0) {
+                    gsap.to(".header", {
+                        y: "-90px",
+                        duration: 0.2,
+                        ease: "ease-in-out",
+                    });
+                }
+                
+                else if (scrollDelta < 0 && Math.abs(scrollDelta) > 1) {
+                    gsap.to(".header", {
+                        y: "0%",
+                        backgroundColor: "#000014",
+                        duration: 0.2,
+                        ease: "ease-in-out",
+                    });
+                }
+
+
+                lastScrollY.current = currentScrollY; // 
+            },
+        });
+
+
+    }, [])
+
     const setHeaderMenu = headerMenuStore(state => state.setStatus)
     return (
         <>
-            <HeaderMenu />
+            <HeaderMenu headerData={headerData} />
             <div className="header w-svw h-[90px] fixed top-0 left-0 z-[998]">
                 <div className="header-wrapper h-full w-full relative flex justify-between items-center">
                     {/* logo */}
                     <Image src="/inverted_image-removebg-preview.png" className="w-auto h-[90px] header-logo opacity-0" alt="logo" width={100} height={100} />
                     <div className="right-header flex justify-start items-center gap-[4vw]">
-                        <h1 className="glitch cursor-default header-text text-rem opacity-0" data-glitch="Tran Duy Linh - DevProfolio" >Tran Duy Linh - DevProfolio</h1>
+                        <h1 className="glitch cursor-default header-text text-rem opacity-0" data-glitch={headerData.title} >{headerData.title}</h1>
                         <div className="text-white menu-toggle w-[40px] h-auto flex flex-col gap-[10px] group justify-center items-center opacity-0 cursor-pointer"
                             onClick={() => setHeaderMenu(true)}
                         >

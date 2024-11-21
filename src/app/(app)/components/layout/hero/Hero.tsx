@@ -1,11 +1,11 @@
 'use client'
 import React, { useEffect } from 'react'
-import LinhSvg from "../svg/LinhSvg";
-import Devsvg from "../svg/Devsvg";
+import LinhSvg from "../../svg/LinhSvg";
+import Devsvg from "../../svg/Devsvg";
 import dynamic from 'next/dynamic';
-import { useInitLoadingStore } from '../../store/loading';
+import { useInitLoadingStore } from '../../../store/loading';
 import gsap from 'gsap'
-import { HeroDataType } from '../../page';
+import { HeroDataType } from '../../../page';
 import { FaArrowDown } from "react-icons/fa";
 
 const Meteors = dynamic(() => import('./Meteors'), { ssr: false });
@@ -23,8 +23,8 @@ type Props = {
 export default function Hero({ heroData }: Props) {
 
     const isLoaded = useInitLoadingStore(state => state.isDone)
-
     useEffect(() => {
+
         const heroTl = gsap.timeline()
         if (isLoaded) {
             heroTl
@@ -53,56 +53,56 @@ export default function Hero({ heroData }: Props) {
                     xPercent: -100,
                     opacity: 0
                 },
-                {
-                    xPercent: 0,
-                    opacity: 1,
-                    duration: 2,
-                    ease: 'expo.inOut',
-                }, '<')
+                    {
+                        xPercent: 0,
+                        opacity: 1,
+                        duration: 2,
+                        ease: 'expo.inOut',
+                    }, '<')
                 .fromTo('.header-text', {
                     y: 50,
                     opacity: 0
                 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: 'expo.inOut',
-                }, '<+0.5')
+                    {
+                        y: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: 'expo.inOut',
+                    }, '<+0.5')
                 .fromTo('.menu-toggle', {
                     x: 50,
                     opacity: 0
                 },
-                {
-                    x: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: 'expo.inOut',
-                }, '<')
+                    {
+                        x: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: 'expo.inOut',
+                    }, '<')
                 .fromTo('.header-logo', {
                     x: -50,
                     opacity: 0
                 },
-                {
-                    x: 0,
-                    opacity: 1,
-                    duration: 1,
-                    ease: 'expo.inOut',
-                }, '<')
+                    {
+                        x: 0,
+                        opacity: 1,
+                        duration: 1,
+                        ease: 'expo.inOut',
+                    }, '<')
                 .fromTo('.status-banner', {
                     opacity: 0
                 }, {
                     opacity: 1,
                     duration: 1,
                     ease: 'power4.in',
-                    stagger: 0.1
+                    stagger: 0.1,
                 }, '+0.2')
         }
 
     }, [isLoaded])
 
     return (
-        <div className="w-full h-svh hero-section relative flex overflow-hidden">
+        <div className="w-full h-svh hero-section relative flex overflow-hidden max-h-svh z-[996] bg-[#000014]">
             <div className="absolute z-[19] top-0">
                 <Meteors number={20} />
             </div>
@@ -116,7 +116,7 @@ export default function Hero({ heroData }: Props) {
                     </div>
                 </div>
 
-                <p className='hero-sub-title text-white text-2xl max-w-[50vw] opacity-0 cursor-default'>{heroData.subtitle}</p>
+                <p className='hero-sub-title text-white text-2xl max-w-[50vw] opacity-0 cursor-default mt-8'>{heroData.subtitle}</p>
                 <button
                     className="hero-button opacity-0 py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] px-8 -translate-y-4"
                 >
@@ -138,7 +138,7 @@ export default function Hero({ heroData }: Props) {
                         <div className="basis-1/3 h-full bg-[#FFCCEA]"></div>
                         <div className="basis-1/3 h-full bg-[#fbf0da]"></div>
                         <div className="basis-1/3 h-full flex justify-end items-center px-2 gap-2">
-                            <p>Scroll</p>
+                            <p className='cursor-default'>Scroll</p>
                             <FaArrowDown className="text-[#1b0e04bd] text-xl arrow-scroll" />
                         </div>
                     </div>

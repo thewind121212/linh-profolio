@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
 import { postgresAdapter } from '@payloadcms/db-postgres'
+import { Header } from './globals/Header'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import {Hero} from './globals/Hero'
 import path from 'path'
@@ -26,7 +27,7 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
-  globals:[Hero],
+  globals:[Hero,Header],
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
