@@ -31,25 +31,19 @@ export default function Header(
             start: "+=0",
             onUpdate: (self) => {
                 const currentScrollY = self.scroll();
-                const scrollDelta = currentScrollY - lastScrollY.current;
 
 
-                // if (typeof window === 'undefined') return
-                // if (currentScrollY >= window.innerHeight) {
-                //     gsap.to(".experiment", {
-                //         position: 'relative',
-                //     });
-                // }
+                if (typeof window === 'undefined') return
 
-                if (scrollDelta > 1 && currentScrollY > 0) {
+                if (currentScrollY > (window.innerHeight - 90 )) {
                     gsap.to(".header", {
                         y: "-90px",
                         duration: 0.2,
                         ease: "ease-in-out",
                     });
                 }
-                
-                else if (scrollDelta < 0 && Math.abs(scrollDelta) > 1) {
+
+                else if (currentScrollY < lastScrollY.current) {
                     gsap.to(".header", {
                         y: "0%",
                         backgroundColor: "#000014",

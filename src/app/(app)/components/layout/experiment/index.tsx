@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useLayoutEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import gsap from 'gsap'
 import Image from 'next/image'
 import dynamic from 'next/dynamic'
@@ -14,76 +14,199 @@ type Props = {}
 export default function Experiment({ }: Props) {
 
   if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger)
   }
-  gsap.registerPlugin(ScrollTrigger)
-
-  const scrollRef = useRef<HTMLDivElement>(null)
 
 
-  useLayoutEffect(() => {
+
+  const scrollRef1 = useRef<boolean>(false)
+  const experienceFirstLayerTl2 = gsap.timeline({
+    paused: true,
+  })
+
+
+  useEffect(() => {
     if (typeof window === 'undefined') return
-    // const scrollTl = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: '.section-two',
-    //     start: "start start",
-    //     end: "+=200%",
-    //     scrub: true,
-    //   }
-    // })
+    const experienceFirstLayerTl1 = gsap.timeline({
+      scrollTrigger: {
+        trigger: 'dummy-section-2',
+        start: '+=2%',
+        end: '+=150%',
+        scrub: 1,
+      }
+    })
+    experienceFirstLayerTl1.to(".outer-line", {
+      opacity: 1,
+      y: 0,
+      duration: 0.7,
+      ease: 'power4.in',
+      stagger: 0.1
+    }, '<')
+      .to('.first-text', {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power4.out',
+      }, '<+0.6')
+      .to('.second-text', {
+        y: 0,
+        opacity: 1,
+        duration: 0.6,
+        ease: 'power4.out',
+      }, '<+0.4')
+      .to('.inner-line', {
+        width: '100%',
+        opacity: 1,
+        duration: 0.7,
+        ease: 'power4.out',
+        stagger: 0.1,
+      }, '<+0.4')
+      .to(
+        '.working-animation', {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        ease: 'power4.in',
+        stagger: 0.1,
+      }, '<+0.4')
+      .to(
+        ".avatar", {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: 'power4.in',
+        stagger: 0.1,
+      }, '<+0.5')
 
-    // scrollTl.to('.experiment', {
-    //   backgroundColor: '#FFCCEA',
-    //   duration: 0.2,
-    //   animation: 'power4.out'
-    // }, '<')
 
-    // const scrollFn = () => {
-    //   if (typeof window === 'undefined') return
 
-    //   if (window.scrollY >= window.innerHeight) {
-    //     gsap.set('.experiment', {
-    //       position: 'relative'
-    //     })
-    //   } else {
-    //     gsap.set('.experiment', {
-    //       position: 'fixed'
-    //     })
-    //   }
-    // }
-    // document.addEventListener('scroll', scrollFn)
+    gsap.set('.outer-line', {
+      y: 50,
+      opacity: 0
+    })
+    gsap.set('.inner-line', {
+      width: 0,
+      opacity: 0
+    })
+    gsap.set('.first-text', {
+      y: -50,
+      opacity: 0
+    })
+    gsap.set('.second-text', {
+      y: 50,
+      opacity: 0
+    })
+    gsap.set('.avatar', {
+      opacity: 0,
+      x: 50
+    })
+    gsap.set('.working-animation', {
+      opacity: 0,
+      x: -50
+    })
 
-    // return () => {
-    //   document.removeEventListener('scroll', scrollFn)
-    // }
+    const scrollFn = () => {
+      if (typeof window === 'undefined') return
 
-  }, [scrollRef.current])
+      const scrollY = window.scrollY
+
+      if (scrollY >= window.innerHeight) {
+        // gsap.set('.experiment', {
+        //   position: 'relative'
+        // })
+        if (scrollY > window.innerHeight * 2 && scrollY < window.innerHeight * 3) {
+          gsap.to('.experiment', {
+            top: (-(scrollY - window.innerHeight * 2)) / ((scrollY / (window.innerHeight * 2))),
+          })
+
+        }
+        //  else {
+        //   gsap.to('.experiment', {
+        //     top: (scrollY - window.innerHeight * 2) / (scrollY / window.innerHeight * 2),
+        //   })
+        // }
+
+        // if (scrollY >= window.innerHeight * 2.1) {
+        //   gsap.set('.experiment', {
+        //     display: 'none',
+        //   })
+        // }
+
+        // if (scrollY < window.innerHeight * 2.2) {
+        //   gsap.set('.experiment', {
+        //     display: 'block',
+        //   })
+        // }
+
+
+
+        scrollRef1.current = true
+        // if (scrollY >= window.innerHeight / 100 * 20) {
+        //   experienceFirstLayerTl1.play()
+        // }
+        // if (scrollY >= window.innerHeight / 100 * 55) {
+        //   experienceFirstLayerTl2.play()
+        // }
+        return
+      } else if (scrollY < window.innerHeight && scrollRef1.current) {
+        gsap.set('.experiment', {
+          position: 'fixed'
+        })
+        scrollRef1.current = false
+        return
+      }
+
+      //   if (scrollY >= window.innerHeight / 100 * 25) {
+      //     experienceFirstLayerTl1.play()
+      //   }
+
+      //   if (scrollY >= window.innerHeight / 100 * 55) {
+      //     experienceFirstLayerTl2.play()
+      //   }
+
+      //   if (scrollY < window.innerHeight / 100 * 55) {
+      //     experienceFirstLayerTl2.reverse()
+      //   }
+
+      //   if (scrollY < window.innerHeight / 100 * 25) {
+      //     experienceFirstLayerTl1.reverse()
+      //   }
+    }
+
+    scrollFn()
+    document.addEventListener('scroll', scrollFn)
+
+    return () => {
+      document.removeEventListener('scroll', scrollFn)
+    }
+
+  }, [])
 
 
 
 
   return (
-    <div className="experiment w-full h-svh bg-[#fbf0da] fixed z-[899] top-0 left-0"
-      ref={scrollRef}
+    <div className="experiment w-full h-[200svh] bg-[#F6F6F6] fixed z-[899] top-0 left-0 max-w-svw overflow-hidden"
     >
-      <div className="w-full h-full relative ">
-        <div className="w-1/3 h-auto padding-main-left">
+      <div className="w-full h-1/2 relative ">
+        <div className="working-animation w-1/3 h-auto padding-main-left pointer-events-none">
           <WorkingAnimation className='w-full h-auto' />
         </div>
-        <div className="w-[38%] h-auto aspect-square padding-main absolute right-0 top-0 padding-main-top rounded-xl overflow-hidden">
+        <div className="avatar w-[38%] h-auto aspect-square padding-main absolute right-0 top-0 padding-main-top rounded-xl overflow-hidden pointer-events-none">
           <Image src='/linh.png' alt="my-avatar" className='w-full h-auto object-cover rounded-xl aspect-square' width={800} height={800} />
         </div>
         <div className="w-full h-auto absolute bottom-0 left-0 group padding-main padding-main-top padding-main-bottom">
-          <div className="w-[40%] bg-white aspect-[729.59/60] rounded-md relative">
-            <div className="absolute bottom-[25%] w-full h-[12%] right-0 bg-[#1b0e04bd] translate-y-1/2"></div>
+          <div className="outer-line w-[40%] bg-[#fbf0da] aspect-[729.59/60] rounded-sm relative opacity-0">
+            <div className="inner-line absolute bottom-[25%] w-full h-[12%] right-0 bg-[#1b0e04bd] translate-y-1/2 opacity-0"></div>
           </div>
           <div className="typewrite text-[#1b0e04bd]  overflow-hidden duration-700 w-[40vw]">
-            <h1 className='text-[6vw] leading-[6.5vw] uppercase font-bold'>my working</h1>
+            <h1 className='first-text text-[6vw] leading-[6.5vw] uppercase font-bold'>my working</h1>
           </div>
           <div className="w-[60%]">
-            <h1 className='text-[6vw] leading-[6.5vw] text-[#1b0e04bd] flex justify-end items-center uppercase font-bold'>experience.</h1>
+            <h1 className='second-text text-[6vw] leading-[6.5vw] text-[#1b0e04bd] flex justify-end items-center uppercase font-bold'>experience.</h1>
           </div>
-          <div className="w-[60%] bg-white aspect-[729.59/40] rounded-md relative overflow-hidden">
-            <div className="absolute top-[25%] w-[80%] h-[12%] bg-[#1b0e04bd] -translate-y-1/2"></div>
+          <div className="outer-line w-[60%] bg-[#fbf0da] aspect-[729.59/40] rounded-sm relative overflow-hidden opacity-0">
+            <div className="inner-line absolute top-[25%] w-[80%] h-[12%] bg-[#1b0e04bd] -translate-y-1/2 opacity-0"></div>
           </div>
         </div>
       </div>
