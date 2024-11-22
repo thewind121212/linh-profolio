@@ -246,22 +246,22 @@ export default function HeaderMenu({ headerData }: Props) {
                             <div className="info-first flex flex-col gap-8">
                                 <div className="info-item info-first-email">
                                     <div className="flex justify-start items-center gap-2">
-                                        <MdEmail color='#264f61' className='text-[18px]' />
-                                        <h2 className='uppercase text-[#264f61] text-[18px] font-bold'>Email</h2>
+                                        <MdEmail color='#31304D' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#31304D] text-[18px] font-bold'>Email</h2>
                                     </div>
                                     <TextHover content={headerData.headerMenuInfo.headerMenuInfoEmail} className='text-[#463237] ml-[26px] mt' />
                                 </div>
                                 <div className="info-item info-first-phone">
                                     <div className="flex justify-start items-center gap-2">
-                                        <MdPhone color='#264f61' className='text-[18px]' />
-                                        <h2 className='uppercase text-[#264f61] text-[18px] font-bold'>Phone</h2>
+                                        <MdPhone color='#31304D' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#31304D] text-[18px] font-bold'>Phone</h2>
                                     </div>
                                     <TextHover content={headerData.headerMenuInfo.headerMenuInfoPhone} className='text-[#463237] ml-[26px] mt' />
                                 </div>
                                 <div className="info-item info-first-web">
                                     <div className="flex justify-start items-center gap-2">
-                                        <FaGlobeAsia color='#264f61' className='text-[18px]' />
-                                        <h2 className='uppercase text-[#264f61] text-[18px] font-bold'>Website</h2>
+                                        <FaGlobeAsia color='#31304D' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#31304D] text-[18px] font-bold'>Website</h2>
                                     </div>
                                     <div className="flex flex-col ml-[26px]">
                                         <Link href={headerData.headerMenuInfo.headerMenuInfoHomeLab} target='_' className='uppercase text-[#463237] text-[14px] border-b border-transparent duration-200 w-fit hover:!border-[#463237]'>homelab</Link>
@@ -274,15 +274,15 @@ export default function HeaderMenu({ headerData }: Props) {
                             <div className="info-second flex flex-col gap-4">
                                 <div className="info-item info-second-location">
                                     <div className="flex justify-start items-center gap-2">
-                                        <MdLocationOn color='#264f61' className='text-[18px]' />
-                                        <h2 className='uppercase text-[#264f61] text-[18px] font-bold'>Location</h2>
+                                        <MdLocationOn color='#31304D' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#31304D] text-[18px] font-bold'>Location</h2>
                                     </div>
                                     <TextHover content={headerData.headerMenuInfo.headerMenuInfoLocation} className='text-[#463237] ml-[26px] mt' />
                                 </div>
                                 <div className="info-item info-second-time">
                                     <div className="flex justify-start items-center gap-2">
-                                        <MdAccessTime color='#264f61' className='text-[18px]' />
-                                        <h2 className='uppercase text-[#264f61] text-[18px] font-bold'>available time</h2>
+                                        <MdAccessTime color='#31304D' className='text-[18px]' />
+                                        <h2 className='uppercase text-[#31304D] text-[18px] font-bold'>available time</h2>
                                     </div>
                                     <TextHover content={headerData.headerMenuInfo.headerMenuInfoTime} className='text-[#463237] ml-[26px] mt' />
                                 </div>
