@@ -31,7 +31,7 @@ export default function Experiment({ }: Props) {
       scrollTrigger: {
         trigger: 'dummy-section-2',
         start: '+=2%',
-        end: '+=150%',
+        end: '+=120%',
         scrub: 1,
       }
     })
