@@ -106,7 +106,7 @@ export default function Hero({ heroData }: Props) {
             <div className="absolute z-[19] top-0">
                 <Meteors number={20} />
             </div>
-            <div className="svg-group flex justify-start h-full items-start gap-[40px] flex-col w-full relative z-[20] pt-[40px]">
+            <div className="svg-group flex justify-center h-full items-start gap-[40px] flex-col w-full relative z-[20] pt-[vw]">
                 <div className="linh w-[80vw] md:w-[50vw] max-w-[700px] opacity-[0.9]">
                     <LinhSvg />
                 </div>
@@ -116,12 +116,6 @@ export default function Hero({ heroData }: Props) {
                     </div>
                 </div>
 
-                <p className='hero-sub-title text-white text-2xl max-w-[50vw] opacity-0 cursor-default mt-8'>{heroData.subtitle}</p>
-                <button
-                    className="hero-button opacity-0 py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px] px-8 -translate-y-4"
-                >
-                    {heroData.button}
-                </button>
                 <div className="status-banner opacity-0 flex absolute flex-col right-0 bottom-0 gap-4">
                     <div className="flex justify-between w-full items-start mt-[20px]">
                         <div className="w-[40vw] gap-[12px] h-[80px] bg-[#fbf0da] rounded-md text-black px-2 py-2 flex justify-between items-center cursor-default overflow-hidden">
