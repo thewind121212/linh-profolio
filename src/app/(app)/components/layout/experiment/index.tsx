@@ -186,26 +186,26 @@ export default function Experiment({ }: Props) {
 
 
   return (
-    <div className="experiment w-full h-[200svh] bg-[#F6F6F6] fixed z-[899] top-0 left-0 max-w-svw overflow-hidden"
+    <div className="experiment w-full h-[200svh] bg-[#FFFFFF] fixed z-[899] top-0 left-0 max-w-svw overflow-hidden"
     >
-      <div className="w-full h-1/2 relative ">
-        <div className="working-animation w-1/3 h-auto padding-main-left pointer-events-none">
+      <div className="w-full h-1/2 relative">
+        <div className="working-animation w-[40%] h-auto padding-main-left pointer-events-none">
           <WorkingAnimation className='w-full h-auto' />
         </div>
-        <div className="avatar w-[38%] h-auto aspect-square padding-main absolute right-0 top-0 padding-main-top rounded-xl overflow-hidden pointer-events-none">
+        <div className="avatar w-[40%] h-auto aspect-square padding-main absolute right-0 top-0 padding-main-top rounded-xl overflow-hidden pointer-events-none">
           <Image src='/linh.png' alt="my-avatar" className='w-full h-auto object-cover rounded-xl aspect-square' width={800} height={800} />
         </div>
         <div className="w-full h-auto absolute bottom-0 left-0 group padding-main padding-main-top padding-main-bottom">
-          <div className="outer-line w-[40%] bg-[#fbf0da] aspect-[729.59/60] rounded-sm relative opacity-0">
+          <div className="outer-line w-[40%] bg-transparent aspect-[729.59/60] rounded-sm relative opacity-0">
             <div className="inner-line absolute bottom-[25%] w-full h-[12%] right-0 bg-[#1b0e04bd] translate-y-1/2 opacity-0"></div>
           </div>
-          <div className="typewrite text-[#1b0e04bd]  overflow-hidden duration-700 w-[40vw]">
+          <div className="typewrite text-[#1E1E1E]  overflow-hidden duration-700 w-[40vw]">
             <h1 className='first-text text-[6vw] leading-[6.5vw] uppercase font-bold'>my working</h1>
           </div>
           <div className="w-[60%]">
-            <h1 className='second-text text-[6vw] leading-[6.5vw] text-[#1b0e04bd] flex justify-end items-center uppercase font-bold'>experience.</h1>
+            <h1 className='second-text text-[6vw] leading-[6.5vw] text-[#1E1E1E] flex justify-end items-center uppercase font-bold'>experience.</h1>
           </div>
-          <div className="outer-line w-[60%] bg-[#fbf0da] aspect-[729.59/40] rounded-sm relative overflow-hidden opacity-0">
+          <div className="outer-line w-[60%] bg-transparent aspect-[729.59/40] rounded-sm relative overflow-hidden opacity-0">
             <div className="inner-line absolute top-[25%] w-[80%] h-[12%] bg-[#1b0e04bd] -translate-y-1/2 opacity-0"></div>
           </div>
         </div>
