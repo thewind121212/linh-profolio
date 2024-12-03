@@ -28,6 +28,8 @@ export default function ExperienceLayer2({ }: Props) {
                 if (containerRef.current.getBoundingClientRect().top < 0) {
                     gsap.set('.experiment2_1', {
                         position: 'fixed',
+                        width: '100svw',
+                        height: '100svh',
                     })
                 } else {
                     gsap.set('.experiment2_1', {
