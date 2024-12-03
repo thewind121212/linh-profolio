@@ -25,7 +25,7 @@
 
 .linh svg.active .svg-elem-1 {
   stroke-dashoffset: 0;
-  fill: #fbf0da;
+  fill: #ffffff;
 }
 
 .linh svg .svg-elem-2 {
@@ -42,7 +42,7 @@
 
 .linh svg.active .svg-elem-2 {
   stroke-dashoffset: 0;
-  fill: #fbf0da;
+  fill: #ffffff;
 }
 
 .linh svg .svg-elem-3 {
@@ -59,7 +59,7 @@
 
 .linh svg.active .svg-elem-3 {
   stroke-dashoffset: 0;
-  fill: #fbf0da;
+  fill: #ffffff;
 }
 
 .linh svg .svg-elem-4 {
@@ -76,7 +76,7 @@
 
 .linh svg.active .svg-elem-4 {
   stroke-dashoffset: 0;
-  fill: #fbf0da;
+  fill: #ffffff;
 }
 
 .dev svg .svg-elem-1 {
@@ -93,7 +93,7 @@
 
 .dev svg.active .svg-elem-1 {
   stroke-dashoffset: 0;
-  fill: #fbf0da;
+  fill: #ffffff;
 }
 
 .dev svg .svg-elem-2 {
@@ -110,7 +110,7 @@
 
 .dev svg.active .svg-elem-2 {
   stroke-dashoffset: 0;
-  fill: #fbf0da;
+  fill: #ffffff;
 }
 
 .dev svg .svg-elem-3 {
@@ -127,7 +127,7 @@
 
 .dev svg.active .svg-elem-3 {
   stroke-dashoffset: 0;
-  fill: #fbf0da;
+  fill: #ffffff;
 }
 
 .button-primary {
