@@ -1,10 +1,13 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 type Props = {}
 export default function ExperienceLayer2({ }: Props) {
+
+    const containerRef = useRef<HTMLDivElement>(null)
+
     gsap.registerPlugin(ScrollTrigger)
 
     useEffect(() => {
@@ -21,16 +24,17 @@ export default function ExperienceLayer2({ }: Props) {
 
 
         const scrollFn1 = () => {
-            // if (window.scrollY > window.innerHeight * 2) {
-            //     gsap.set('.experiment2', {
-            //         position: 'relative',
-            //     })
-            // } else {
-            //     gsap.set('.experiment2', {
-            //         position: 'fixed',
-            //     })
-            // }
-
+            if (containerRef.current) {
+                if (containerRef.current.getBoundingClientRect().top < 0) {
+                    gsap.set('.experiment2_1', {
+                        position: 'fixed',
+                    })
+                } else {
+                    gsap.set('.experiment2_1', {
+                        position: 'absolute',
+                    })
+                }
+            }
         }
 
         scrollFn1()
@@ -44,23 +48,26 @@ export default function ExperienceLayer2({ }: Props) {
     }, [])
 
     return (
-        <div className="experiment2 w-full h-[200svh] bg-[#1E1E1E] z-[994] top-0 left-0 relative flex justify-start items-center flex-col"
+        <div className="experiment2 w-full h-[200svh] bg-[#1E1E1E] z-[994] relative top-0 left-0 flex justify-start items-center flex-col"
+            ref={containerRef}
         >
-            <div className="w-full h-1/2 relative flex justify-start items-start padding-main-left padding-main padding-main-top flex-col padding-main-bottom">
-            <div className="w-full h-auto flex justify-between items-start">
-                <h1 className='text-white text-[1.5vw] uppercase block font-[500]'>● INTRODUCTION Myself</h1>
-                <p className='text-white text-[2vw] uppercase w-2/3 leading-[2.4vw] font-[400]'>
-Hi, I&apos;m Tran Duy Linh, a passionate full-stack developer with a flair for creating best web solutions. <span className='text-gradient block font-[500]'>● Welcome to my profile!</span> 
-                </p>
+            <div className="experiment2_1 w-full h-1/2 absolute top-0 left-0">
+                <div className="w-full h-full relative flex justify-between items-start padding-main-left padding-main padding-main-top flex-col padding-main-bottom">
+                    <div className="w-full h-auto flex justify-between items-start">
+                        <h1 className='text-white text-[1.5vw] uppercase block font-[500]'>● INTRODUCTION Myself</h1>
+                        <p className='text-white text-[2vw] uppercase w-2/3 leading-[2.4vw] font-[400]'>
+                            Hi, I&apos;m Tran Duy Linh, a passionate full-stack developer with a flair for creating best web solutions. <span className='text-gradient block font-[500]'>● Welcome to my profile!</span>
+                        </p>
 
-            </div>
-            <h1 className='w-full text-[20vw] font-bold text-white leading-[22vw]'>PROJECTS</h1>
-            <div className="w-full h-full flex justify-between items-start">
-                    <div className="w-[40%] aspect-[20/2] bg-white rounded-xl"></div>
-                    <p className='text-white text-[1.5vw] w-[35%] font-light leading-[1.71vw]'>
-                    I&apos;m a versatile Software Engineer specializing in both frontend and backend in web development. With a strong proficiency in frontend technologies. 
-                    Outside professional pursuits in software engineering, I&apos;m deeply committed to lifelong learning, personal growth. Outside of work, I love play piano and enjoy reading some detective novels.</p>
-            </div>
+                    </div>
+                    <h1 className='w-full text-[20vw] font-bold text-white leading-[22vw]'>PROJECTS</h1>
+                    <div className="w-full h-auto flex justify-between items-start">
+                        <div className="w-[40%] aspect-[20/2] bg-white rounded-xl"></div>
+                        <p className='text-white text-[1.5vw] w-[35%] font-light leading-[1.71vw]'>
+                            I&apos;m a versatile Software Engineer specializing in both frontend and backend in web development. With a strong proficiency in frontend technologies.
+                            Outside professional pursuits in software engineering, I&apos;m deeply committed to lifelong learning, personal growth. Outside of work, I love play piano and enjoy reading some detective novels.</p>
+                    </div>
+                </div>
             </div>
         </div>
     )

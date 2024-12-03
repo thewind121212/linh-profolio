@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState, useRef } from "react"
-import { useSpring, animated, AnimatedProps } from "@react-spring/web";
+import { useSpring, animated } from "@react-spring/web";
 import clsx from "clsx"
 import LoadingCircle from "./LoadingCircle"
 import { useInitLoadingStore } from "../../store/loading";
@@ -111,33 +111,33 @@ export default function IndexLoading() {
         })}
         >
             <div className="wrapper w-full h-full relative flex justify-center items-center">
-                <LoadingCircle className="absolute z-50 lg:w-[6vw]" ref={loader_circle} />
+                <LoadingCircle className="absolute z-50 lg:w-[6vw]" ref={loader_circle} fillColor="#FFFFFF" />
                 <div className="text-[20px] text-black absolute z-[80] top-[50%] -translate-y-1/2 left-[50%] -translate-x-1/2 font-bold"
                     ref={countRef}
                 >
                     {/* @ts-ignore */}
                     <animated.div>
                         {/* @ts-ignore */}
-                        <animated.div className="text-[#1e1005] lg:text-3xl">
+                        <animated.div className="text-[#1E1E1E] lg:text-3xl">
                             {countAnimation.number.to(val => `${100 - Math.floor(val)}`)}
                         </animated.div>
                     </animated.div>
                 </div>
                 <div
-                    className="w-1/2 h-full absolute left-0 bg-[#FBF0DA]"
+                    className="w-1/2 h-full absolute left-0 bg-[#FFFFFF]"
                     ref={loader_panelLeft}
                 />
                 <div
-                    className="w-1/2 h-full absolute right-0 bg-[#FBF0DA]"
+                    className="w-1/2 h-full absolute right-0 bg-[#FFFFFF]"
                     ref={loader_panelRight}
                 />
-                <div className="w-[4px] h-full top-0 left-[7.5%] bg-[#1e1005] absolute"
+                <div className="w-[4px] h-full top-0 left-[7.5%] bg-[#1E1E1E] absolute"
                     ref={linerLeft}
                 />
-                <div className="w-[4px] h-full top-0 right-[7.5%] bg-[#1e1005] absolute"
+                <div className="w-[4px] h-full top-0 right-[7.5%] bg-[#1E1E1E] absolute"
                     ref={linerRight}
                 />
-                <div className="w-[0.5px] absolute h-full bg-[#1e1005] top-0 left-1/2 -translate-x-1/2"
+                <div className="w-[0.5px] absolute h-full bg-[#1E1E1E] top-0 left-1/2 -translate-x-1/2"
                     ref={middleLine}
                 />
             </div>

@@ -23,7 +23,7 @@ export default function Clock() {
     })
 
     return ( 
-        <div className="clock flex justify-start items-center text-5xl absolute right-2 !text-[#614C5C]">
+        <div className="clock flex justify-start items-center text-5xl absolute right-2 !text-[#1E1E1E]">
             <div className="hours flex justify-start items-center w-[60px] relative overflow-hidden">
                 <div className="first opacity-0">
                     <div className="number">0</div>
