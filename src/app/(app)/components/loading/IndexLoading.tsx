@@ -111,7 +111,7 @@ export default function IndexLoading() {
         })}
         >
             <div className="wrapper w-full h-full relative flex justify-center items-center">
-                <LoadingCircle className="absolute z-50 lg:w-[6vw]" ref={loader_circle} fillColor="#FFFFFF" />
+                <LoadingCircle className="absolute z-50 sm:w-[7vw] min-w-[6.25rem] max-w-[6.25rem]" ref={loader_circle} fillColor="#FFFFFF" />
                 <div className="text-[20px] text-black absolute z-[80] top-[50%] -translate-y-1/2 left-[50%] -translate-x-1/2 font-bold"
                     ref={countRef}
                 >

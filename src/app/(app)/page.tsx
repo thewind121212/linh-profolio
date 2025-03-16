@@ -1,8 +1,7 @@
 import Hero from "./components/layout/hero/Hero";
 import config from '@payload-config'
 import { getPayloadHMR } from '@payloadcms/next/utilities'
-import Experiment from "./components/layout/experiment";
-import ExperienceLayer2 from "./components/layout/experiment/ExperienceLayer2";
+import AboutMeRenderPort from "./components/layout/about-me/AboutMeRenderPoint";
 
 
 
@@ -40,14 +39,7 @@ export default async function Page() {
     return (
         <div className="bg-[#000014] w-svw h-auto min-h-[500svh] max-w-svh overflow-hidden main-section">
             <Hero heroData={heroData} />
-            <Experiment />
-            <div className="dummy-section-2 w-full h-[200svh] bg-transparent"></div>
-            <ExperienceLayer2 />
-            {/* <div className="section-two relative z-[991]">
-                <div className="section-four w-full h-[200svh] bg-[#FFCCEA] text-black flex justify-center items-center">
-                    <p>linh</p>
-                </div>
-            </div> */}
+            <AboutMeRenderPort />
         </div >
     );
 }

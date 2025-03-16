@@ -6,8 +6,10 @@ import DogRunAnimation from './lottie-animations/dog_file.json'
 
 export default function DogRunAnimationComponent({
     className,
+    isMobile,
 }: {
     className?: string;
+    isMobile?: boolean;
 }) {
 
     return (

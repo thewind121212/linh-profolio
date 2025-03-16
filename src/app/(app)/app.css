@@ -381,3 +381,19 @@
  -webkit-background-clip: text; 
  -webkit-text-fill-color: transparent; 
 }
+
+/* from 0 to 1024 min h is 932px */
+@media (max-width: 1024px) {
+  .hero-mod {
+    min-height: 932px;
+  }  
+
+}
+
+
+@media (min-width: 1024px) {
+  .hero-mod {
+    min-height: 809px;
+  }  
+
+}

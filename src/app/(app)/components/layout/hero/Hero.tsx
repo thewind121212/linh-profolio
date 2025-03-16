@@ -102,23 +102,23 @@ export default function Hero({ heroData }: Props) {
     }, [isLoaded])
 
     return (
-        <div className="w-full h-svh hero-section relative flex overflow-hidden max-h-svh z-[996] bg-[#000014]">
+        <div className="w-full h-svh hero-mod !lg:min-h-auto hero-section relative flex overflow-hidden max-h-svh z-[996] bg-[#000014]">
             <div className="absolute z-[19] top-0">
                 <Meteors number={20} />
             </div>
             <div className="svg-group flex justify-center h-full items-start gap-[40px] flex-col w-full relative z-[20] pt-[vw]">
-                <div className="linh w-[80vw] md:w-[50vw] max-w-[700px] opacity-[0.9]">
+                <div className="linh w-[50vw] min-w-[20rem] lg:min-w-auto  md:w-[50vw] max-w-[700px] opacity-[0.9] mx-auto lg:mx-0">
                     <LinhSvg />
                 </div>
-                <div className="w-full flex justify-between items-center">
-                    <div className="dev w-[70vw] md:w-[40vw] max-w-[450px] opacity-[0.9]">
+                <div className="w-full flex justify-between items-center mb-[30rem] lg:mb-0">
+                    <div className="dev w-[50vw] min-w-[20rem] lg:min-w-auto md:w-[40vw] max-w-[450px] opacity-[0.9] mx-auto lg:mx-0">
                         <Devsvg />
                     </div>
                 </div>
 
-                <div className="status-banner opacity-0 flex absolute flex-col right-0 bottom-0 gap-4">
-                    <div className="flex justify-between w-full items-start mt-[20px]">
-                        <div className="w-[40vw] gap-[12px] h-[80px] bg-[#ffffff] rounded-md text-black px-2 py-2 flex justify-between items-center cursor-default overflow-hidden">
+                <div className="w-full lg:w-auto status-banner opacity-0 flex absolute flex-col right-0 bottom-0 gap-4">
+                    <div className="flex lg:min-w-[40rem] justify-between w-full items-start mt-[20px]">
+                        <div className="w-full lg:w-[40vw] lg:min-w-[40rem] gap-[12px] h-[5rem] bg-[#ffffff] rounded-md text-black px-2 py-2 flex justify-between items-center cursor-default overflow-hidden">
                             <div className="h-full flex justify-end items-start w-auto flex-col">
                                 <div className="text-[32px] font-[500] text-[#1E1E1E]">
                                     2024
@@ -128,7 +128,7 @@ export default function Hero({ heroData }: Props) {
                             <Clock />
                         </div>
                     </div>
-                    <div className="w-[40vw] h-[50px] bg-white rounded-md self-end flex justify-start items-center overflow-hidden">
+                    <div className="max-[500px]:w-full  w-[80%] lg:w-[40vw] lg:min-w-[40rem] h-[50px] bg-white rounded-md self-end flex justify-start items-center overflow-hidden">
                         <div className="basis-1/3 h-full bg-[#FBCCEA]"></div>
                         <div className="basis-1/3 h-full bg-[#fbf0da]"></div>
                         <div className="basis-1/3 h-full flex justify-end items-center px-2 gap-2">
@@ -141,11 +141,15 @@ export default function Hero({ heroData }: Props) {
             </div>
             <video
                 autoPlay
+                autoFocus={false}
+                controls={false}
+                playsInline
+                tabIndex={-1}
                 muted
                 loop
-                className="absolute top-[80px] right-[-15%]  h-full w-full z-[10] object-cover"
+                className="absolute top-[7.5rem] lg:top-[5rem] right-0 lg:right-[-15%]  h-full w-full z-[10] object-cover"
             >
-                <source src="/blackhole.webm" type="video/webm" />
+                <source src="/blackhole.webm" type="video/webm"/>
             </video>
         </div>
     )
