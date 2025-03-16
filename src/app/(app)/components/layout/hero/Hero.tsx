@@ -7,10 +7,18 @@ import { useInitLoadingStore } from '../../../store/loading';
 import gsap from 'gsap'
 import { HeroDataType } from '../../../page';
 import { FaArrowDown } from "react-icons/fa";
+import Image from 'next/image';
+
+
+
+
+import { isMobile } from 'react-device-detect';
 
 const Meteors = dynamic(() => import('./Meteors'), { ssr: false });
 
 const Clock = dynamic(() => import('./Clock'), { ssr: false });
+
+const Video = dynamic(() => import('./Video'), { ssr: false });
 
 type Props = {
     heroData: HeroDataType
@@ -19,13 +27,21 @@ type Props = {
 
 
 
-
 export default function Hero({ heroData }: Props) {
+
+    const [showVideo, setShowVideo] = React.useState<boolean>(false)
 
     const isLoaded = useInitLoadingStore(state => state.isDone)
     useEffect(() => {
 
-        const heroTl = gsap.timeline()
+        const heroTl = gsap.timeline(
+            {
+                onComplete: () => {
+                    setShowVideo(true)
+                }
+            }
+        )
+
         if (isLoaded) {
             heroTl
                 .delay(1.5)
@@ -139,18 +155,19 @@ export default function Hero({ heroData }: Props) {
 
                 </div>
             </div>
-            <video
-                autoPlay
-                autoFocus={false}
-                controls={false}
-                playsInline
-                tabIndex={-1}
-                muted
-                loop
-                className="absolute top-[7.5rem] lg:top-[5rem] right-0 lg:right-[-15%]  h-full w-full z-[10] object-cover select-none"
-            >
-                <source src="/blackhole.webm" type="video/webm"/>
-            </video>
+
+
+            <Image
+                src="/blackhole.gif"
+                alt="hero-image"
+                quality={100}
+                width={0}
+                height={0}
+                className="absolute top-[7.5rem] lg:top-[5rem] right-0 lg:right-[-15%] object-cover  h-full w-full z-[10] select-none lg:hidden"
+            />
+            {
+                !isMobile  && showVideo && <Video />
+            }
         </div>
     )
 }
