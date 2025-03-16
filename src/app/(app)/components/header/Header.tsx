@@ -65,7 +65,7 @@ export default function Header(
         <>
             <HeaderMenu headerData={headerData} />
             <div className="header w-svw h-[90px] fixed top-0 left-0 z-[998]">
-                <div className="header-wrapper h-full w-full relative flex justify-between items-center">
+                <div className="header-wrapper h-full w-full relative flex justify-between items-center bg-[#000014]">
                     {/* logo */}
                     <Image src="/inverted_image-removebg-preview.png" className="w-auto h-[90px] header-logo opacity-0" alt="logo" width={100} height={100} />
                     <div className="right-header flex justify-start items-center gap-[4vw]">

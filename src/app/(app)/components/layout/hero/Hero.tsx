@@ -121,7 +121,7 @@ export default function Hero({ heroData }: Props) {
                         <div className="w-full lg:w-[40vw] lg:min-w-[40rem] gap-[12px] h-[5rem] bg-[#ffffff] rounded-md text-black px-2 py-2 flex justify-between items-center cursor-default overflow-hidden">
                             <div className="h-full flex justify-end items-start w-auto flex-col">
                                 <div className="text-[32px] font-[500] text-[#1E1E1E]">
-                                    2024
+                                    2025
                                 </div>
                                 <p>Time.</p>
                             </div>
@@ -147,7 +147,7 @@ export default function Hero({ heroData }: Props) {
                 tabIndex={-1}
                 muted
                 loop
-                className="absolute top-[7.5rem] lg:top-[5rem] right-0 lg:right-[-15%]  h-full w-full z-[10] object-cover"
+                className="absolute top-[7.5rem] lg:top-[5rem] right-0 lg:right-[-15%]  h-full w-full z-[10] object-cover select-none"
             >
                 <source src="/blackhole.webm" type="video/webm"/>
             </video>
